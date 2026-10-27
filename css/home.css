@@ -1,0 +1,43 @@
+/* Home: lock screen, hero, marquee, page links */
+/* hero: the one memorable moment */
+.hero{position:relative;padding:clamp(2rem,8vw,6rem) 0 clamp(3rem,7vw,5rem)}
+.name{font:400 clamp(7rem,30vw,25rem)/.8 var(--display);letter-spacing:-.01em;display:flex;flex-wrap:wrap;align-items:flex-end;gap:0 .04em;user-select:none}
+.name span{display:inline-block;transition:transform .35s cubic-bezier(.2,.9,.3,1),color .35s;will-change:transform}
+.name .kanji{font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;font-weight:700;font-size:.62em;line-height:1;color:var(--lime);margin-left:.12em}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:clamp(2rem,5vw,4rem);align-items:end}
+.intro p{font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.4;max-width:30ch}
+.intro .meta{justify-self:end;color:var(--mute);max-width:34ch;font-size:1rem}
+.intro .meta a{color:var(--fg);text-decoration-color:var(--lime);text-underline-offset:4px}
+
+@media (prefers-reduced-motion:no-preference){
+  .name span{animation:rise .9s cubic-bezier(.2,.9,.3,1) both;animation-delay:calc(var(--i)*70ms)}
+  @keyframes rise{from{transform:translateY(60%);opacity:0}to{transform:none;opacity:1}}
+}
+
+/* marquee */
+.strip{background:var(--lime);color:var(--bg);overflow:hidden;white-space:nowrap;border-block:2px solid var(--bg)}
+.strip div{display:inline-block;padding:.55rem 0;font:400 1.75rem/1 var(--display);letter-spacing:.05em}
+.strip span{padding:0 1.5rem}
+@media (prefers-reduced-motion:no-preference){.strip div{animation:slide 28s linear infinite}}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* lock screen */
+#lock{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:clamp(3rem,10vh,6rem) 1.5rem 2.5rem;text-align:center;background:radial-gradient(120% 80% at 50% 0%,#3b1a78 0%,#150e24 55%,#0d0a14 100%);touch-action:none;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+#lock.gone{transform:translateY(-100%)}
+#lock time{display:block;font:400 clamp(6rem,24vw,14rem)/.85 var(--display);letter-spacing:.02em}
+#lock .date{margin-top:1rem;color:#c9b8ee;font-size:1.15rem}
+#lock button{background:none;border:0;color:var(--fg);font:600 1rem var(--body);cursor:pointer;padding:.9rem 1.5rem;border-radius:999px;border:1px solid rgba(185,131,255,.5)}
+#lock button:hover{background:rgba(185,131,255,.15)}
+#lock .hint{display:block;margin-bottom:.9rem;color:#c9b8ee;font-size:.95rem}
+@media (prefers-reduced-motion:no-preference){#lock button{animation:bob 2s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-6px)}}}
+@media (prefers-reduced-motion:reduce){#lock{transition:none}}
+body.locked{overflow:hidden}
+
+.jump ul{list-style:none;border-top:1px solid var(--line)}
+.jump li{border-bottom:1px solid var(--line)}
+.jump a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;text-decoration:none;padding:1.15rem 0;transition:color .2s,padding .3s}
+.jump span{font:400 clamp(2.5rem,7vw,5rem)/1 var(--display)}
+.jump small{color:var(--mute)}
+.jump a:hover{color:var(--lime);padding-left:.75rem}
+@media (max-width:760px){.intro{grid-template-columns:1fr}.intro .meta{justify-self:start}.jump small{display:none}}
+.fullname{margin-top:1.5rem;color:var(--lime);font-size:clamp(1.1rem,2.2vw,1.4rem);font-weight:600;letter-spacing:.04em}

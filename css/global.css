@@ -1,0 +1,30 @@
+/* Shared: tokens, reset, nav, footer */
+
+:root{
+  --bg:#0d0a14; --fg:#ece8f5; --mute:#9a92b0; --line:#2a2238; --lime:#b983ff; --deep:#6d28d9;
+  --display:"Bebas Neue",Impact,"Arial Narrow",sans-serif;
+  --body:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+::selection{background:var(--lime);color:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+
+body::before{content:"";position:fixed;inset:-20% -10% auto auto;width:60vw;height:60vw;background:radial-gradient(closest-side,rgba(109,40,217,.28),transparent);pointer-events:none;z-index:-1}
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+h2{font:400 clamp(2.75rem,7vw,5rem)/.95 var(--display);margin-bottom:2rem}
+/* top bar */
+header{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+header strong{font:400 1.5rem/1 var(--display);letter-spacing:.06em}
+nav{display:flex;gap:1.75rem}
+nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+nav a:hover{color:var(--lime)}
+
+footer{padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
+.brand{text-decoration:none}
+nav{flex-wrap:wrap;justify-content:flex-end}
+nav a[aria-current="page"]{color:var(--lime)}
+@media (max-width:760px){nav{gap:1.1rem}}
