@@ -17,6 +17,7 @@ shinn_portfolio/
 │   ├── home.css        Home styles
 │   └── pages.css       Inner page styles
 └── js/
+    ├── background.js   Living cursor-reactive background
     ├── global.js       Nav state, footer year
     └── home.js         Hero letters, lock screen
 ```

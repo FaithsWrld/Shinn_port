@@ -28,3 +28,4 @@ footer{padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 nav{flex-wrap:wrap;justify-content:flex-end}
 nav a[aria-current="page"]{color:var(--lime)}
 @media (max-width:760px){nav{gap:1.1rem}}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
