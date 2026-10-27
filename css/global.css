@@ -13,7 +13,6 @@ a{color:inherit}
 ::selection{background:var(--lime);color:var(--bg)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
 
-body::before{content:"";position:fixed;inset:-20% -10% auto auto;width:60vw;height:60vw;background:radial-gradient(closest-side,rgba(109,40,217,.28),transparent);pointer-events:none;z-index:-1}
 section{padding:clamp(3.5rem,8vw,6.5rem) 0}
 h2{font:400 clamp(2.75rem,7vw,5rem)/.95 var(--display);margin-bottom:2rem}
 /* top bar */
@@ -28,4 +27,12 @@ footer{padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 nav{flex-wrap:wrap;justify-content:flex-end}
 nav a[aria-current="page"]{color:var(--lime)}
 @media (max-width:760px){nav{gap:1.1rem}}
-#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+/* living background: soft light (CSS, GPU) + node canvas */
+#bg{position:fixed;top:0;left:0;width:100%;height:100vh;height:100lvh;z-index:-2;pointer-events:none;transform:translateZ(0)}
+.aura{position:fixed;z-index:-3;border-radius:50%;pointer-events:none;will-change:transform}
+.a1{width:70vmax;height:70vmax;left:-18vmax;top:-22vmax;background:radial-gradient(closest-side,rgba(124,58,237,.34),transparent);animation:driftA 26s ease-in-out infinite alternate}
+.a2{width:62vmax;height:62vmax;right:-18vmax;bottom:-22vmax;background:radial-gradient(closest-side,rgba(109,40,217,.28),transparent);animation:driftB 32s ease-in-out infinite alternate}
+.follow{width:520px;height:520px;left:0;top:0;opacity:0;background:radial-gradient(closest-side,rgba(168,100,255,.30),transparent);transition:opacity .5s}
+@keyframes driftA{to{transform:translate3d(18vmax,12vmax,0) scale(1.15)}}
+@keyframes driftB{to{transform:translate3d(-16vmax,-10vmax,0) scale(1.2)}}
+@media (prefers-reduced-motion:reduce){.a1,.a2{animation:none}}

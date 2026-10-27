@@ -31,7 +31,7 @@
 .now p{color:#d3cce3;max-width:34ch}
 
 /* community: deep-purple band */
-.community{background:linear-gradient(135deg,#2a1255 0%,#150e24 70%);border-block:1px solid var(--line)}
+.community{background:linear-gradient(135deg,rgba(42,18,85,.72) 0%,rgba(21,14,36,.55) 70%);border-block:1px solid var(--line)}
 .community h2{max-width:13ch;font-size:clamp(3rem,9vw,7.5rem)}
 .cgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,4rem);align-items:start}
 .cgrid p{font-size:1.2rem;color:#e0d8f2;max-width:46ch}
@@ -39,7 +39,7 @@
 .chips li{border:1px solid rgba(185,131,255,.55);background:rgba(13,10,20,.5);border-radius:999px;padding:.4rem 1rem;font-size:.95rem}
 /* strengths: outlined tiles */
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.tiles div{border:1px solid var(--line);border-top:3px solid var(--lime);padding:1.5rem;background:#120d1d;transition:border-color .2s}
+.tiles div{border:1px solid var(--line);border-top:3px solid var(--lime);padding:1.5rem;background:rgba(18,13,29,.7);transition:border-color .2s}
 .tiles div:hover{border-color:var(--lime)}
 .tiles h3{font:400 1.9rem/1 var(--display);margin-bottom:.6rem}
 .tiles p{color:#d3cce3;font-size:1rem}
